@@ -15,6 +15,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int left = 2;
   int right = 1;
+  change() {
+    setState(
+      () {
+        left = Random().nextInt(6) + 1;
+        right = Random().nextInt(6) + 1;
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,9 +44,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    setState(() {
-                      left = Random().nextInt(6) + 1;
-                    });
+                    change();
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -50,9 +57,7 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: TextButton(
                   onPressed: () {
-                    setState(() {
-                      right = Random().nextInt(6) + 1;
-                    });
+                    change();
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
